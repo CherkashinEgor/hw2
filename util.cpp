@@ -19,15 +19,21 @@ std::set<std::string> parseStringToWords(string rawWords)
     set<string> my_set;
     string word;
     for(int i = 0; i < rawWords.length(); i++){
-        if(ispunct(rawWords[i]) && rawWords[i] != '-'){
-            if(word.length() >= 2){
-                my_set.insert(word);
-                word = "";
-            } else {
-                word = "";
-            }
-        } else {
+        if(rawWords[i] == '-'){
             word.push_back(rawWords[i]);
+            // cout << "Word: " << word << endl;
+        } else {
+            if(ispunct(rawWords[i]) || rawWords[i] == ' '){
+                if(word.length() >= 2){
+                    my_set.insert(word);
+                    word = "";
+                } else {
+                    word = "";
+                }
+            } else {
+                word.push_back(rawWords[i]);
+                // cout << "Word: " << word << endl;
+            }
         }
     }
 
@@ -35,8 +41,8 @@ std::set<std::string> parseStringToWords(string rawWords)
         my_set.insert(word);
     }
 
-    for (auto it = my_set.begin(); it != my_set.end(); ++it)
-        cout << ' ' << *it;
+    // for (auto it = my_set.begin(); it != my_set.end(); ++it)
+    //     cout << "e " << *it << endl;
     return my_set;
 }
 

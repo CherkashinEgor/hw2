@@ -3,9 +3,7 @@
 #include "movie.h"
 #include "product.h"
 #include "util.h"
-// #include <vector>
 #include <string>
-// #include <set>
 
 using namespace std;
 
@@ -27,5 +25,5 @@ void Movie::dump(std::ostream& os) const {
 }
 
 string Movie::displayString() const{
-    return name_ + "\nGenre: " + genre_ + "\nRating: " + rating_ + "\nPrice: " + to_string(price_) + " Quantity: " + to_string(qty_) + "\n";
+    return name_ + "\nGenre: " + genre_ + " Rating: " + rating_ + "\n" + to_string(price_) + " " + to_string(qty_) + " left.\n";
 }

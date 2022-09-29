@@ -3,7 +3,7 @@
 #include <vector>
 #include "product.h"
 
-using namespace std;
+
 
 class Clothing : public Product {
     public : 
@@ -20,6 +20,6 @@ class Clothing : public Product {
         virtual void dump(std::ostream& os) const;
     
     protected:
-        string size_;
-        string brand_;
+        std::string size_;
+        std::string brand_;
 };

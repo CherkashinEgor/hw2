@@ -1,11 +1,7 @@
-// #include <sstream>
-// #include <iomanip>
 #include "clothing.h"
 #include "product.h"
 #include "util.h"
-// #include <vector>
 #include <string>
-// #include <set>
 
 using namespace std;
 
@@ -27,5 +23,5 @@ void Clothing::dump(std::ostream& os) const {
 }
 
 string Clothing::displayString() const{
-    return name_ + "\nSize: " + size_ + "\nBrand: " + brand_ + "\nPrice: " + to_string(price_) + " Quantity: " + to_string(qty_) + "\n";
+    return name_ + "\nSize: " + size_ + " Brand: " + brand_ + "\n" + to_string(price_) + " " + to_string(qty_) + " left.\n";
 }

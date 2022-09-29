@@ -3,15 +3,13 @@
 #include "book.h"
 #include "product.h"
 #include "util.h"
-// #include <vector>
 #include <string>
-// #include <set>
 
 using namespace std;
 
 Book::Book(std::string category, const std::string name, double price, int qty, std::string isbn, std::string author) : Product(category, name, price, qty) {
     isbn_ = isbn;
-    author_ = author_;
+    author_ = author;
 }
 
 Book::~Book(){}
@@ -31,5 +29,5 @@ void Book::dump(std::ostream& os) const {
 }
 
 string Book::displayString() const{
-    return name_ + "\nAuthor: " + author_ + "\nISBN: " + isbn_ + "\nPrice: " + to_string(price_) + " Quantity: " + to_string(qty_) + "\n";
+    return name_ + "\nAuthor: " + author_ + " ISBN: " + isbn_ + "\n" + to_string(price_) + " " + to_string(qty_) + " left.\n";
 }

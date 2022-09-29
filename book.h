@@ -4,7 +4,6 @@
 #include <vector>
 #include "product.h"
 
-using namespace std;
 
 class Book : public Product {
     public : 
@@ -21,6 +20,6 @@ class Book : public Product {
         virtual void dump(std::ostream& os) const;
     
     protected:
-        string isbn_;
-        string author_;
+        std::string isbn_;
+        std::string author_;
 };
