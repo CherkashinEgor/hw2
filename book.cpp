@@ -4,6 +4,7 @@
 #include "product.h"
 #include "util.h"
 #include <string>
+#include <sstream>
 
 using namespace std;
 
@@ -29,5 +30,11 @@ void Book::dump(std::ostream& os) const {
 }
 
 string Book::displayString() const{
-    return name_ + "\nAuthor: " + author_ + " ISBN: " + isbn_ + "\n" + to_string(price_) + " " + to_string(qty_) + " left.\n";
+    // return name_ + "\nAuthor: " + author_ + " ISBN: " + isbn_ + "\n" + to_string(price_) + " " + to_string(qty_) + " left.\n";
+    stringstream ss;
+    ss.precision(2);
+    ss << name_ << "\nAuthor: " << author_ << " ISBN: " << isbn_ << "\n";
+    ss << showpoint << fixed << price_ << " ";
+    ss << qty_ << " left.\n";
+    return ss.str();
 }

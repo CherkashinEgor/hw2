@@ -28,6 +28,7 @@ void MyDataStore::addUser(User* user){
 
 void MyDataStore::addProduct(Product* product){
     //Add product to products
+    // cout << "ADD PRODUCT" << product->getName() << endl; JJJJJJJJ
     products.insert(make_pair(convToLower(product->getName()), product));
     //Get list of keywords 
     set<string> product_keywords = product->keywords();
@@ -84,9 +85,9 @@ vector<Product*> MyDataStore::search(std::vector<std::string>& terms, int type){
         for(unsigned int i = 0; i < terms.size(); i++){
             if(keywords.count(terms[i]) != 0){
                 set<Product*> f = keywords.find(terms[i])->second;
-                for(auto i : f){
-                    cout << i->getName() << endl;
-                }
+                // for(auto i : f){
+                     // cout << i->getName() << endl; JJJJJJJJ
+                // }
                 temp = setUnion(temp, f);
             }
         }
@@ -117,6 +118,8 @@ void MyDataStore::addToCart(string username, int hit){
     queue<Product*> cart = user_carts.find(username)->second;
     cart.push(last_search[hit-1]);
     user_carts.find(username)->second = cart;
+    // cout << "Item " << hit << endl; JJJJJJJ
+    // cout << last_search[hit-1]->displayString();
 }
 
 void MyDataStore::printCart(string username){
@@ -127,10 +130,13 @@ void MyDataStore::printCart(string username){
         return;
     }
     queue<Product*> print(user_carts.find(username)->second);
-    cout << endl << username << "'s Cart: " << endl;
+    // cout << endl << username << "'s Cart: " << endl;
+    int count = 1;
     while(!print.empty()){
-        cout << print.front()->getName() << endl;
+        cout << "Item " << count << endl;
+        cout << print.front()->displayString() << endl;
         print.pop();
+        count += 1;
     }
 }
 
